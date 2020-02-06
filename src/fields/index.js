@@ -2,7 +2,7 @@ import { VRow, VCol, VTextField } from 'vuetify/lib/components'
 import {
   EmailField, PasswordField, SelectField, AutocompleteField,
   BooleanField, CheckBoxField, IntegerField, NumberField,
-  RadioGroupField
+  RadioGroupField, TextareaField
 } from '../components'
 
 export default {
@@ -10,6 +10,7 @@ export default {
   col: VCol,
 
   text: VTextField,
+  textArea: TextareaField,
   email: EmailField,
   password: PasswordField,
   int: IntegerField,
