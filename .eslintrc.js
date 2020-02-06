@@ -4,13 +4,17 @@ module.exports = {
     browser: true,
     node: true
   },
+  globals: {
+    $nuxt: true
+  },
   parserOptions: {
     parser: 'babel-eslint'
   },
   extends: [
+    '@nuxtjs',
+    'plugin:nuxt/recommended'
   ],
   // add your custom rules here
   rules: {
-    'vue/no-v-html': 'off'
   }
 }

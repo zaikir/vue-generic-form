@@ -3,8 +3,8 @@ import clone from 'clone'
 import { fieldCompiler, renderComponents } from './utils'
 
 export default ({ Form, fields } = {}) => {
-  const componentsTree = fields && fieldCompiler(fields.length 
-    ? { type: 'row', fields } 
+  const componentsTree = fields && fieldCompiler(fields.length
+    ? { type: 'row', fields }
     : fields)
 
   return {
