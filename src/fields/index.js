@@ -1,5 +1,5 @@
 import { VRow, VCol, VTextField } from 'vuetify/lib/components'
-import { EmailField, PasswordField } from '../components'
+import { EmailField, PasswordField, SelectField, AutocompleteField, BooleanField, CheckBoxField } from '../components'
 
 export default {
   row: VRow,
@@ -7,5 +7,10 @@ export default {
 
   text: VTextField,
   email: EmailField,
-  password: PasswordField
+  password: PasswordField,
+  select: SelectField,
+  autocomplete: AutocompleteField,
+
+  bool: BooleanField,
+  checkbox: CheckBoxField
 }

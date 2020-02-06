@@ -2,7 +2,7 @@ import { VForm } from 'vuetify/lib/components'
 import clone from 'clone'
 import { fieldCompiler, renderComponents } from './utils'
 
-export default ({ Form, fields } = {}) => {
+export const createForm = ({ Form, fields } = {}) => {
   const componentsTree = fields && fieldCompiler(fields.length
     ? { type: 'row', fields }
     : fields)
@@ -93,3 +93,5 @@ export default ({ Form, fields } = {}) => {
     }
   }
 }
+
+export default createForm()

@@ -10,7 +10,7 @@ export default {
       props: {
         ...context.data.props,
         rules: [
-          ...(context.data.props || {}).rules,
+          ...context.data.props.rules || [],
           x => !x || EmailValidator.validate(x) || 'Неверный формат' // To do: add localization support
         ]
       }

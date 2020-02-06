@@ -1,2 +1,6 @@
 export { default as EmailField } from './EmailField.vue'
 export { default as PasswordField } from './PasswordField.vue'
+export { default as SelectField } from './SelectField.vue'
+export { default as AutocompleteField } from './AutocompleteField.vue'
+export { default as CheckBoxField } from './CheckBoxField.vue'
+export { default as BooleanField } from './BooleanField.vue'
