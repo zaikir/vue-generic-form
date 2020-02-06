@@ -4,6 +4,7 @@ function buildElement (createElement, node, model, {
   const children = node.children && node.children.map(x => buildElement(createElement, x, model, {
     globalProps,
     globalClasses,
+    onInput,
     onChange
   }))
 

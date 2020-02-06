@@ -85,8 +85,8 @@ export default ({ Form, fields } = {}) => {
             ...this.gapped && { 'mb-1': true }
           },
           ...this.reactive && {
-            onInput: this.reactive && (() => this.$emit('input', this.clone)),
-            onChange: this.reactive && (() => this.$emit('change', this.clone))
+            onInput: () => this.$emit('input', this.clone),
+            onChange: () => this.$emit('change', this.clone)
           }
         })
       ])
