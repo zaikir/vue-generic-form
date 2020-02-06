@@ -1,7 +1,8 @@
 import { VRow, VCol, VTextField } from 'vuetify/lib/components'
 import {
   EmailField, PasswordField, SelectField, AutocompleteField,
-  BooleanField, CheckBoxField, IntegerField, NumberField
+  BooleanField, CheckBoxField, IntegerField, NumberField,
+  RadioGroupField
 } from '../components'
 
 export default {
@@ -18,5 +19,6 @@ export default {
   autocomplete: AutocompleteField,
 
   bool: BooleanField,
-  checkbox: CheckBoxField
+  checkbox: CheckBoxField,
+  radio: RadioGroupField
 }
