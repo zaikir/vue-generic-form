@@ -3,7 +3,7 @@ import clone from 'clone'
 import { fieldCompiler, renderComponents } from './utils'
 
 export default ({ Form, fields } = {}) => {
-  const componentsTree = fieldCompiler(fields.length 
+  const componentsTree = fieldCompiler(fields && fields.length 
     ? { type: 'row', fields } 
     : fields)
 
@@ -56,6 +56,10 @@ export default ({ Form, fields } = {}) => {
       }
     },
     render (createElement) {
+      if (!this.fields && !fields) {
+        throw new Error('Fields are required to build form!')
+      }
+
       const actualComponentTree = this.fields
         ? fieldCompiler(this.fields.length ? { type: 'row', fields: this.fields } : this.fields)
         : componentsTree
