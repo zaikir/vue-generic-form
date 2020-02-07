@@ -40,7 +40,7 @@ export default {
       on: {
         ...on,
         input: (val) => {
-          this.currentValue = val || null
+          this.currentValue = val
         }
       }
     })
@@ -73,7 +73,7 @@ export default {
           },
           on: {
             input: (val) => {
-              this.currentValue = val || null
+              this.currentValue = val
             }
           }
         })

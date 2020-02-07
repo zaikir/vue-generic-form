@@ -50,7 +50,7 @@ export default {
       },
       on: {
         input: (val) => {
-          this.currentValue = (val && (val + this.timezoneString)) || null
+          this.currentValue = val && (val + this.timezoneString)
         }
       }
     })
@@ -83,7 +83,7 @@ export default {
           },
           on: {
             input: (val) => {
-              this.currentValue = (val && (val + 'T00:00:00' + this.timezoneString)) || null
+              this.currentValue = val && (val + 'T00:00:00' + this.timezoneString)
             }
           }
         })

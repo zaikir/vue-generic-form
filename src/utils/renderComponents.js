@@ -10,15 +10,15 @@ function buildElement (createElement, node, model, {
 
   return createElement(node.component, {
     ...node.params,
-    // props: {
-    //   ...globalProps,
-    //   ...node.params.props,
-    //   ...node.params.__bindToModel && { value: model[node.params.__value] }
-    // },
-    attrs: {
+    props: {
       ...globalProps,
       ...node.params.props,
       ...node.params.__bindToModel && { value: model[node.params.__value] }
+    },
+    attrs: {
+      ...globalProps,
+      ...node.params.props,
+      ...node.params.__bindToModel && { value: model[node.params.__value] || null }
     },
     class: {
       ...node.params.class,
@@ -27,7 +27,7 @@ function buildElement (createElement, node, model, {
     on: {
       ...node.params.on,
       ...onInput && {
-        input (event = {}) {
+        input (event) {
           if (event && !event.target) {
             model[node.params.__value] = event
             onInput()
@@ -35,7 +35,7 @@ function buildElement (createElement, node, model, {
         }
       },
       ...onChange && {
-        change (event = {}) {
+        change (event) {
           if (event && !event.target) {
             model[node.params.__value] = event
             onChange()
