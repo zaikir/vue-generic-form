@@ -7,7 +7,7 @@ export default {
     return createElement(VSwitch, {
       ...context.data,
       class: {
-        'mt-1': true,
+        'mt-0': true,
         ...context.data.class || {}
       },
       on: {

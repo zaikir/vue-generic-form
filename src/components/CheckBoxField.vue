@@ -7,7 +7,7 @@ export default {
     return createElement(VCheckbox, {
       ...context.data,
       class: {
-        'mt-1': true,
+        'mt-0': true,
         ...context.data.class || {}
       },
       on: {
