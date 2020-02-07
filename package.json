@@ -44,5 +44,8 @@
     "eslint-plugin-vue": "^5.2.3",
     "eslint-plugin-vuetify": "^1.0.0-beta.3",
     "vuetify": "^2.2.10"
+  },
+  "dependencies": {
+    "moment-mini": "^2.22.1"
   }
 }

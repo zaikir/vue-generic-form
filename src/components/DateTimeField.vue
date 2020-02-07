@@ -1,13 +1,23 @@
 <script>
 import { VDatePicker, VMenu, VTextField } from 'vuetify/lib/components'
+import moment from 'moment-mini'
 
 export default {
   props: {
-    value: String
+    value: String,
+    timezone: {
+      type: Number,
+      required: true
+    }
   },
   data () {
     return {
       currentValue: null
+    }
+  },
+  computed: {
+    timezoneString () {
+      return `${this.timezone >= 0 ? '+' : '-'}${Math.abs(this.timezone).toString().padStart(2, 0)}:00`
     }
   },
   watch: {
@@ -26,21 +36,21 @@ export default {
     const createTextField = on => createElement(VTextField, {
       props: {
         ...this.$attrs,
-        value: this.currentValue
+        value: this.currentValue && moment(this.currentValue).utcOffset(this.timezone * 60).format('YYYY-MM-DDTHH:mm:00').substr(0, 19),
+        type: 'datetime-local'
       },
       attrs: {
-        max: '9999-12-31',
+        max: '9999-12-31T23:59',
         maxlength: '4',
         required: !!this.$attrs.required
       },
       class: {
         ...this.class || {},
-        'gf-date-field': true
+        'gf-datetime-field': true
       },
       on: {
-        ...on,
         input: (val) => {
-          this.currentValue = val || null
+          this.currentValue = (val && (val + this.timezoneString)) || null
         }
       }
     })
@@ -69,11 +79,11 @@ export default {
             firstDayOfWeek: 1,
             dense: true,
             ...this.$attrs.datePickerProps || {},
-            value: this.currentValue
+            value: this.currentValue && this.currentValue.substr(0, 10)
           },
           on: {
             input: (val) => {
-              this.currentValue = val || null
+              this.currentValue = (val && (val + 'T00:00:00' + this.timezoneString)) || null
             }
           }
         })
@@ -85,8 +95,8 @@ export default {
 }
 </script>
 <style>
-.gf-date-field input[type="date"]::-webkit-inner-spin-button,
-.gf-date-field input[type="date"]::-webkit-calendar-picker-indicator {
+.gf-datetime-field input::-webkit-inner-spin-button,
+.gf-datetime-field input::-webkit-calendar-picker-indicator {
     display: none;
     -webkit-appearance: none;
 }

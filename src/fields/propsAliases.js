@@ -5,7 +5,6 @@ export default {
       rules.push(x => !!x || 'Введите значение') // To do: add localization support
 
       obj.rules = rules
-      delete obj.required
     }
   }
 }
